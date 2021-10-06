@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import './index.css'
-import axios from "axios";
-import Spinner from "../../components/Spinner";
 import ModalWindow from "../../components/ModalWindow";
 import ProjectsCard from "../../components/ProjectsCard";
 import {getProjects} from "../../redux/actions";

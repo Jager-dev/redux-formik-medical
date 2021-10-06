@@ -20,13 +20,13 @@ const ModalWindow = ({setModalIsOpen, modalIsOpen}) => {
     },
     validationSchema: Yup.object({
       title: Yup.string()
-        .max(15, 'Must be 15 characters or less')
+        .min(2, 'Must be 2 characters or less')
         .required('Required'),
       manager: Yup.string()
-        .max(15, 'Must be 15 characters or less')
+        .min(2, 'Must be 2 characters or less')
         .required('Required'),
       supervisor: Yup.string()
-        .max(15, 'Must be 15 characters or less')
+        .min(2, 'Must be 2 characters or less')
         .required('Required'),
     }),
     onSubmit: data => {
@@ -34,6 +34,8 @@ const ModalWindow = ({setModalIsOpen, modalIsOpen}) => {
       delete data.file
       data.image = img.url
       dispatch(addProject(data))
+      closeModal(false)
+      setImg({})
     },
   });
 

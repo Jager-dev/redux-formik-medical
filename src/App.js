@@ -5,8 +5,6 @@ import Calendar from "./views/Calendar";
 import Possibilities from "./views/Possibilities";
 import Layout from "./components/Layout";
 
-
-
 function App() {
   return (
     <Router>
