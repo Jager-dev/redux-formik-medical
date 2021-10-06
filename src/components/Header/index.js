@@ -1,5 +1,5 @@
 import React from 'react';
-import avatar from "../../../../react-redux-formik-medical/src/components/Layout/avatar.jpg";
+import avatar from './avatar.jpg'
 
 const Header = () => {
   return (

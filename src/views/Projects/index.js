@@ -1,55 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import './index.css'
-import {useForm} from "react-hook-form";
 import axios from "axios";
 import Spinner from "../../components/Spinner";
 import ModalWindow from "../../components/ModalWindow";
 import ProjectsCard from "../../components/ProjectsCard";
+import {getProjects} from "../../redux/actions";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const Projects = () => {
-  const [projects, setProjects] = useState([])
   const [modalIsOpen, setModalIsOpen] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
-  const {reset} = useForm()
-  const [img, setImg] = useState({})
   const [cName, setClassName] = useState('jsGridView')
 
-  const onSend = (data) => {
-    delete data.img
-    delete data.file
-    data.image = img.url
-    axios.post("https://6115f1058f38520017a38640.mockapi.io/projects", data)
-      .then(({data: project}) => {
-        setProjects([...projects, project])
-        setModalIsOpen(false)
-        reset()
-      })
-  }
+  const projects = useSelector(s => s.projects)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    axios("https://6115f1058f38520017a38640.mockapi.io/projects")
-      .then(({data}) => {
-        setProjects(data)
-        setIsLoading(false)
-      })
+    dispatch(getProjects())
   }, [])
-
-  const handleFile = (e) => {
-    const formData = new FormData()
-    formData.append("file", e.target.files[0])
-    formData.append("upload_preset", "jager0123")
-    axios.post("https://api.cloudinary.com/v1_1/ulan0123/image/upload", formData)
-      .then(({data}) => setImg(data))
-  }
-
-
-
-  if (isLoading) {
-    return (
-      <Spinner/>
-    )
-  }
 
   return (
     <>
@@ -73,7 +41,7 @@ const Projects = () => {
           )
         }
       </div>
-      <ModalWindow handleFile={handleFile} onSend={onSend} modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}/>
+      <ModalWindow modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}/>
     </>
   );
 }
