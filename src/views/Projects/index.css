@@ -1,0 +1,13 @@
+
+.add_btn{
+    background: #b331cb;
+    border: none;
+    color: white;
+    padding: 8px;
+}
+.projects_card{
+    text-align: start;
+    width: 300px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+}

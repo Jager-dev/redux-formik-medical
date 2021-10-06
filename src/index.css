@@ -1,13 +1,89 @@
-body {
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.main{
+  display: flex;
+}
+.aside{
+  width: 20%;
+  background-color: rgb(61, 15, 114);
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+.logo{
+  width: 130px;
+  margin: 0 auto;
+  display: block;
+}
+.nav{
+  display: block;
+  padding: 0;
+  list-style: none ;
+}
+.nav-item a{
+  color: white;
+  display: block;
+  text-decoration: none;
+  padding: 8px 20px ;
+  border-left: 4px solid transparent ;
+}
+.nav-item a.active{
+  background-color: rgb(32,6,66);
+  border-left: 4px solid magenta
+}
+.header{
+  padding: 10px 15px;
+  background-color: rgba(201, 201, 201, 0.4);
+  width: 100%;
+}
+.content{
+  padding: 30px;
+}
+.right-side{
+  width: 80%;
+}
+.avatar{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: auto;
+  display: block;
+}
+.modal-window{
+  position: relative;
+}
+.btn-close{
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+.project-img{
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+}
+.project-desc{
+  line-height: 2px;
+  font-size: 16px;
+}
+.project-img-case{
+  min-width: 30%;
+}
+.jsListView{
+  width: 100%;
+}
+.jsGridView{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+.jsListView .border{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-left: 10px;
 }
